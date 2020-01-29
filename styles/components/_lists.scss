@@ -1,0 +1,20 @@
+/* MENU */
+#menu-menu {
+    li.nav-item{
+        a[href] {
+            color: white;
+            display: block;
+            padding: 15px;
+        }
+
+        a[href]:hover, a[href]:focus {
+            text-decoration: none; 
+        }
+
+        a[href].disabled {
+            color: #6c757d;
+            pointer-events: none;
+            cursor: default;
+        }
+    }
+}

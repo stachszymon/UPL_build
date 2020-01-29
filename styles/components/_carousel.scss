@@ -1,0 +1,24 @@
+#opinion-carousel {
+    margin-top: 10px;
+    .owl-stage-outer {
+        border: 1px solid #fff;
+        background: rgba(255, 255, 255, 0.1);
+        text-align: center;
+    }
+    .owl-item {
+        padding: 1rem 2rem;
+    }
+}
+
+#posts-carousel {
+    @include media-breakpoint-down(sm) {
+        text-align: center;
+    }
+    img {
+        @include media-breakpoint-up(md) {
+            max-width: 200px;
+            margin-bottom: 1rem;
+        }
+        margin-bottom: 2rem;
+    }
+}

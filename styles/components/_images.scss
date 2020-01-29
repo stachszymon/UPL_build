@@ -1,0 +1,40 @@
+#hero {
+    //background-image: url('../img/hero.jpg');
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include media-breakpoint-up(sm) {
+        background-position: center;
+    }
+}
+
+.about-height {
+    @include media-breakpoint-up(lg) {
+        max-height: 420px;
+    }
+}
+.img-bigger-than-contnent {
+    max-height: 520px;
+    width: 100%;
+    transform: translateY(-50px);
+
+    @include media-breakpoint-up(lg) {
+        min-height: 520px;
+    }
+}
+
+.opinions-container {
+    //background-image: url('../img/bg.jpg');
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 2rem;
+    @include media-breakpoint-up(lg) {
+        background-size: 100% 80%;
+    }
+    @include media-breakpoint-up(xl) {
+        padding-top: 0;
+        background-size: 100% 70%;
+    }
+}

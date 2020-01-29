@@ -1,0 +1,70 @@
+/*
+  # You assign a value to a name that begins with $, and then you can refer to that variable instead of the value itself.
+ */
+$color-primary: #114e67;
+$color-darker: #0f3c4e;
+
+$theme-colors: (
+    'primary': $color-primary,
+    'dark': $color-darker,
+);
+
+.mb-lg-70 {
+    @include media-breakpoint-up(lg) {
+        margin-bottom: 50px !important;
+    }
+}
+
+.bg-primary {
+    background: $color-primary !important;
+}
+
+.bg-dark {
+    background: $color-darker !important;
+}
+
+.text-primary {
+    color: $color-primary !important;
+}
+
+.text-dark {
+    color: $color-darker !important;
+}
+.btn {
+    padding: 10px 15px;
+    border-radius: 0;
+}
+.btn-primary {
+    border-color: $color-primary !important;
+    background: $color-primary !important;
+
+    &:hover {
+        background: $color-darker !important;
+    }
+}
+.btn-outline-primary {
+    border-color: $color-primary !important;
+    color: $color-primary;
+    background: #fff;
+
+    &:hover {
+        background: $color-darker !important;
+        color: #fff;
+        border-color: #fff;
+    }
+}
+
+a.text-primary {
+    color: $color-primary !important;
+    &:hover {
+        color: $color-primary !important;
+    }
+}
+
+button,
+input {
+    &:focus {
+        outline: none;
+        box-shadow: none !important;
+    }
+}
