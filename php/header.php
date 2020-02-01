@@ -54,8 +54,8 @@
                     'menu_class' => 'navbar-nav h-100',
                     'add_li_class' => 'nav-item'
                 )); ?>
-                <form class="d-flex my-2 my-lg-0 ml-auto">
-                  <input class="form-control mr-2 my-2 ml-3" type="search" placeholder="Szukaj" aria-label="Search">
+                <form class="d-flex my-2 my-lg-0 ml-auto" method='get' action='<?php echo home_url() ?>'>
+                  <input name='s' class="form-control mr-2 my-2 ml-3" type="search" placeholder="Szukaj" aria-label="Search">
                   <button class="btn btn-outline-light my-2 px-2 py-1 mr-3" type="submit"><i class="fa fa-search"></i></button>
                 </form>
               </div>

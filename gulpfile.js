@@ -3,6 +3,7 @@ const sass = require('gulp-sass');
 const csso = require('gulp-csso');
 const concat = require('gulp-concat');
 const autoprefixer = require('gulp-autoprefixer');
+const minify = require('gulp-minify');
 const headerComment = require('gulp-header-comment');
 
 const destPath = './../umowypodlupa/';
@@ -31,22 +32,26 @@ function styles() {
 }
 
 function php() {
-	return src('php/**/*.php')
-		.pipe(dest(destPath));
+	return src('php/**/*.php').pipe(dest(destPath));
 }
 
 function scripts() {
-	return src('scripts/**/*.php')
-		.pipe(dest(destPath));
+	return src('scripts/**/*.js', { sourcemaps: true })
+		.pipe(minify({noSource: false}))
+		.pipe(concat('script.min.js'))
+		.pipe(dest(destPath, { sourcemaps: true }));
 }
 
 function extra() {
-	return src('extra/**/*')
-		.pipe(dest(destPath));
+	return src('extra/**/*').pipe(dest(destPath));
 }
 
 exports.styles = styles;
 exports.php = php;
 exports.scripts = scripts;
 exports.extra = extra;
-exports.watch = () => watch(['styles/**/*', 'php/**/*', 'scripts/**/*', 'extra/**/*'], parallel(styles, php, scripts, extra));
+exports.watch = () =>
+	watch(
+		['styles/**/*', 'php/**/*', 'scripts/**/*', 'extra/**/*'],
+		parallel(styles, php, scripts, extra),
+	);

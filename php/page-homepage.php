@@ -2,7 +2,6 @@
 /*
     Template Name: Home-Page-Template
 */
-    
     get_header() 
 ?>
 
@@ -13,8 +12,8 @@
                 <div class="col-lg-6 col-md-8 py-5">
                     <h2 class="text-primary mb-3"><strong>Dobrze trafiłeś!</strong></h2>
                     <p>Już dziś Fundacja Umowy Pod Lupą może Ci pomóc. Chcesz odzyskać pieniądze z polisolokaty? Kredyt walutowy to Twoja zmora? Wspieramy Was i stajemy po Waszej stronie – stronie prawa. Nasi specjaliści profesjonalnie pomogą odzyskać Wam niezgodnie z prawem odebrane pieniądze. Fundacja wraz z ekspertami wspomoże Cię w walce o Twoje prawa. To nic nie kosztuje, a spróbować warto. Nie czekaj – działaj.</p>
-                    <button class="btn btn-primary mt-2">Sprawdź teraz</button>
-                    <button class="btn btn-outline-primary mt-2">Napisz do nas</button>
+                    <a href="<?php get_permalink() ?>/o-nas" class="btn btn-primary mt-2">Sprawdź teraz</a>
+                    <a href="<?php get_permalink() ?>/kontakt" class="btn btn-outline-primary mt-2">Napisz do nas</a>
                 </div>
             </div>
         </div>
@@ -34,7 +33,7 @@
                     <li><p>wspieranie, tworzenie i realizacja kampanii reklamowych i akcji promocyjnych; </p></li>
                     <li><p>wydawanie materiałów edukacyjnych.</p></li>
                 </ul>
-                <button class="btn btn-primary mt-2 mb-5">Zobacz do czego dążymy</button>
+                <a href="<?php get_permalink() ?>/cel" class="btn btn-primary mt-2 mb-5">Zobacz do czego dążymy</a>
             </div>
             <div class="col-lg-3 col-md-4">
                 <img class="img-fluid d-block mb-3" src="<?php echo get_template_directory_uri() . '/img/homepage/frankowicz.jpg' ?>" alt="Frankowicz">
@@ -55,7 +54,7 @@
                  <div class="col-lg-6 pl-5 pt-5 mt-2 text-white pb-5">
                      <h2 class="mb-3"><strong>Kim jesteśmy?</strong></h2>
                      <p>Jesteśmy praktykami. Zadowolenie Klientów przekształca się bezpośrednio w nasz sukces. W Fundacji „Umowy pod lupą” zrzeszamy ludzi, którzy dzięki swojej pasji i oddaniu byli w stanie odnosić sukcesy w ponad 16 letnim okresie swojej działalności na rynkach finansowych. Nasi doradcy doskonalili swoje kompetencje, służąc klientom swoją wiedzą w najlepszych korporacjach oraz instytucjach finansowych. </p>
-                     <button class="btn btn-outline-primary my-3">Dowiedz się więcej</button>
+                     <a href="<?php get_permalink() ?>/o-nas" class="btn btn-outline-primary my-3">Dowiedz się więcej</a>
                 </div>
              </div>
          </div>
@@ -70,30 +69,15 @@
             </div>
               <div class="col-lg-7 blog-slider">
                     <div id="posts-carousel" class="owl-carousel owl-theme" >
-                        <div class="item">
-                            <img class="img-fluid" src="<?php echo get_template_directory_uri() . '/img/homepage/thumb.jpg' ?>" alt="">
-                            <h4><strong>​Wystąp o zwrot bo to co miałeś stracić już straciłeś – teraz tylko zyskasz!</strong></h4>
-                        </div>
-                        <div class="item">
-                            <img class="img-fluid" src="<?php echo get_template_directory_uri() . '/img/homepage/thumb.jpg' ?>" alt="">
-                            <h4><strong>​Wystąp o zwrot bo to co miałeś stracić już straciłeś – teraz tylko zyskasz!</strong></h4>
-                        </div>
-                        <div class="item">
-                            <img class="img-fluid" src="<?php echo get_template_directory_uri() . '/img/homepage/thumb.jpg' ?>" alt="">
-                            <h4><strong>​Wystąp o zwrot bo to co miałeś stracić już straciłeś – teraz tylko zyskasz!</strong></h4>
-                        </div>
-                        <div class="item">
-                            <img class="img-fluid" src="<?php echo get_template_directory_uri() . '/img/homepage/thumb.jpg' ?>" alt="">
-                            <h4><strong>​Wystąp o zwrot bo to co miałeś stracić już straciłeś – teraz tylko zyskasz!</strong></h4>
-                        </div>
-                        <div class="item">
-                            <img class="img-fluid" src="<?php echo get_template_directory_uri() . '/img/homepage/thumb.jpg' ?>" alt="">
-                            <h4><strong>​Wystąp o zwrot bo to co miałeś stracić już straciłeś – teraz tylko zyskasz!</strong></h4>
-                        </div>
-                        <div class="item">
-                            <img class="img-fluid" src="<?php echo get_template_directory_uri() . '/img/homepage/thumb.jpg' ?>" alt="">
-                            <h4><strong>​Wystąp o zwrot bo to co miałeś stracić już straciłeś – teraz tylko zyskasz!</strong></h4>
-                        </div>
+                        <?php $latest_posts = get_posts( array( 'numberposts' => 10 ) ); 
+                            foreach($latest_posts as $post) :
+                            setup_postdata( $post );
+                        ?>
+                        <a style='color:black;' href='<?php the_permalink() ?>' class="item">
+                            <?php the_post_thumbnail( 'medium', ['class'=>'h-100'] ); ?>
+                            <h4><strong>​<?php the_title() ?></strong></h4>
+                        </a>
+                        <?php endforeach; ?>
                     </div>
               </div>
           </div>
